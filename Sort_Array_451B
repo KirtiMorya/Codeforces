@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    int n;
+    cin>>n; 
+    vector<int>arr;
+    vector<int>vt;
+    for(int i=0; i<n;i++){
+       int val;
+       cin>>val;
+       arr.push_back(val);
+       vt.push_back(val);
+    }
+    sort(vt.begin(),vt.end());
+   int l=0;
+   int r=0;
+   for(int i=n-1; i>0; i--){
+     if(arr[i]<arr[i-1]){
+       l=i-1;
+     }
+   }
+   for(int i=1; i<n; i++){
+     if(arr[i]<arr[i-1]){
+       r=i;
+     }
+   }
+    reverse(arr.begin()+l,arr.begin()+r+1);
+    if(arr==vt){
+      cout<<"yes"<<" ";
+      cout<<endl;
+      cout<<l+1<<" "<<r+1;
+    }
+    else{
+      cout<<"no"<<" ";
+    }
+    return 0;
+}
