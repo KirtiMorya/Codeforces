@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+long long mod=1e9+7;
+int main(){
+    int n;
+    cin>>n;
+  vector<pair<int,int>>vt(n);
+    int count=0;
+    int s1=0;
+    int s2=0;
+    for(int i=0; i<n; i++){
+       int a,b;
+       cin>>a>>b;
+       vt.push_back({a,b});
+       s1+=a;
+       s2+=b;
+       if((a%2==0 && b%2!=0) || (b%2==0 && a%2!=0)){
+        count++;
+       }
+    }
+    if(s1%2==0 && s2%2==0){
+         cout<<0<<endl;
+    }
+    else if(s1%2!=0 && s2%2!=0 && count>0){
+            cout<<1<<endl;
+    }
+    else{
+        cout<<-1;
+    }
+    return 0;
+}
