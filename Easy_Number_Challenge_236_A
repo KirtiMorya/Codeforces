@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+long long mod=1073741824;
+int main(){
+    int a,b,c;
+    cin>>a>>b>>c;
+    vector<int>dp(1e6+1,0);
+    for(int i=1; i<=1e6; i++){
+        for(int j=i; j<=1e6; j+=i){
+            dp[j]++;
+        }
+    }
+    long long ans=0;
+    for(int i=1; i<=a; i++){
+        for(int j=1; j<=b; j++){
+            for(int k=1;k <=c; k++){
+                int n=i*j*k;
+                 ans+=dp[n];
+                 ans=ans%mod;
+            }
+        }
+    }
+    cout<<ans;
+    return 0;
+}
